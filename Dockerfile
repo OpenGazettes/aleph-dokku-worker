@@ -7,6 +7,9 @@ ENV ZA_GAZETTE_ARCHIVE_URI http://s3-eu-west-1.amazonaws.com/code4sa-gazettes/ar
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
+RUN mkdir /app
+COPY CHECKS /app/CHECKS
+
 WORKDIR /aleph
 
 CMD newrelic-admin run-program celery -A aleph.queue worker -c 1 -l INFO --logfile=/var/log/celery.log
