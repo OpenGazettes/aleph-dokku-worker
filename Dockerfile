@@ -9,4 +9,4 @@ RUN pip install -r /tmp/requirements.txt
 
 WORKDIR /aleph
 
-CMD newrelic-admin run-program celery -A aleph.queue worker -c 10 -l INFO --logfile=/var/log/celery.log
+CMD newrelic-admin run-program celery -A aleph.queue worker -c 1 -l INFO --logfile=/var/log/celery.log
