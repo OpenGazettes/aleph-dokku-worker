@@ -1,9 +1,11 @@
-FROM pudo/aleph@289f391d0f75
+FROM pudo/aleph
 
 ENV ELASTICSEARCH_INDEX aleph
 ENV ALEPH_SETTINGS /aleph/contrib/docker_settings.py
+ENV ZA_GAZETTE_ARCHIVE_URI http://s3-eu-west-1.amazonaws.com/code4sa-gazettes/archive/
 
-RUN pip install newrelic==2.46.0.37
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
 WORKDIR /aleph
 
