@@ -13,4 +13,4 @@ COPY CHECKS /app/CHECKS
 COPY celery_config.py /aleph/celery_config.py
 WORKDIR /aleph
 
-CMD newrelic-admin run-program celery -A aleph.queue worker -c 2 --config=celery_config -l INFO --logfile=/var/log/celery.log
+CMD newrelic-admin run-program celery -A aleph.queue worker -c 1 --config=celery_config -l INFO --logfile=/var/log/celery.log
