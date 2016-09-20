@@ -10,7 +10,6 @@ RUN pip install -U -r /tmp/requirements.txt
 RUN mkdir /app
 COPY CHECKS /app/CHECKS
 
-COPY celery_config.py /aleph/celery_config.py
 WORKDIR /aleph
 
-CMD newrelic-admin run-program celery -A aleph.queue worker -c $CELERY_CONCURRENCY --config=celery_config -l $LOGLEVEL --logfile=/var/log/celery.log
+CMD newrelic-admin run-program celery -A aleph.queue worker -c $CELERY_CONCURRENCY -l $LOGLEVEL --logfile=/var/log/celery.log
