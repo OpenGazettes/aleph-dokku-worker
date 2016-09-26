@@ -1,4 +1,4 @@
-FROM code4sa/aleph:flask-context-with-celery-cycling
+FROM code4sa/aleph:tika-pdf-text
 
 ENV ELASTICSEARCH_INDEX aleph
 ENV ALEPH_SETTINGS /aleph/contrib/docker_settings.py
