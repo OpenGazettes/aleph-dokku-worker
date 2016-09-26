@@ -45,9 +45,9 @@ docker run -d --name=tika logicalspark/docker-tikaserver
 ```
 
 ```
-dokku docker-options:add aleph run,deploy  "-v /var/log/aleph:/var/log"
-dokku docker-options:add aleph run,deploy  "-v /var/lib/aleph:/opt/aleph/data"
-dokku docker-options:add aleph run,deploy  "--link tika"
+dokku docker-options:add aleph-worker run,deploy  "-v /var/log/aleph:/var/log"
+dokku docker-options:add aleph-worker run,deploy  "-v /var/lib/aleph:/opt/aleph/data"
+dokku docker-options:add aleph-worker run,deploy  "--link tika"
 ```
 
 
