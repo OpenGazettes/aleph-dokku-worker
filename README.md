@@ -15,7 +15,7 @@ dokku config:set aleph \
     ALEPH_APP_TITLE="Aleph Code4SA" \
     ALEPH_APP_NAME=aleph \
     ALEPH_FAVICON=http://code4sa.org/favicon.ico \
-    ALEPH_APP_URL=http://aleph.code4sa.org \
+    ALEPH_APP_URL=http://search.opengazettes.org.za \
     ALEPH_LOGO=http://code4sa.org/images/logo.png \
     ALEPH_SECRET_KEY=... \
     ALEPH_URL_SCHEME=http \
@@ -28,7 +28,7 @@ dokku config:set aleph \
     ALEPH_BROKER_URI=sqs://sqs.eu-west-1.amazonaws.com/.../
     ALEPH_DATABASE_URI=postgresql://aleph:aleph@postgres/aleph \
     ALEPH_ELASTICSEARCH_URI=http://elasticsearch:9200/
-    NEW_RELIC_APP_NAME="Aleph" \
+    NEW_RELIC_APP_NAME="Aleph Worker" \
     NEW_RELIC_LICENSE_KEY=... \
     C_FORCE_ROOT='true' \
     POLYGLOT_DATA_PATH=/opt/aleph/data \
