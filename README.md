@@ -37,7 +37,8 @@ dokku config:set aleph \
     CELERY_CONCURRENCY=4 \
     CELERYD_MAX_TASKS_PER_CHILD=1 \
     TIKA_URI='http://tika:9998/' \
-    PDF_TEXT_MODULE='tika'
+    PDF_TEXT_MODULE='tika' \
+    LOGLEVEL=DEBUG
 ```
 
 ```
