@@ -13,4 +13,4 @@ COPY CHECKS /app/CHECKS
 
 WORKDIR /aleph
 
-CMD newrelic-admin run-program celery -A aleph.queue worker -c $CELERY_CONCURRENCY -l $LOGLEVEL --logfile=/var/log/celery.log
+CMD celery -A aleph.queue worker -c $CELERY_CONCURRENCY -l $LOGLEVEL --logfile=/var/log/celery.log
