@@ -1,4 +1,4 @@
-FROM code4sa/aleph:latest
+FROM code4sa/aleph:simpler-docker
 
 ENV ELASTICSEARCH_INDEX aleph
 ENV ALEPH_SETTINGS /aleph/code4sa_settings.py
