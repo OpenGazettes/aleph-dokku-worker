@@ -1,4 +1,4 @@
-FROM code4sa/aleph:tika-pdf-text-on-flask-context-with-celery-cycling
+FROM code4sa/aleph:latest
 
 ENV ELASTICSEARCH_INDEX aleph
 ENV ALEPH_SETTINGS /aleph/code4sa_settings.py
