@@ -2,6 +2,8 @@
 
 Dokku Dockerfile deploy repo for an aleph worker
 
+Note that logs are persistent across container restarts and are in `/var/log/aleph/celery.log`.
+
 ## Config
 
 ### Basics

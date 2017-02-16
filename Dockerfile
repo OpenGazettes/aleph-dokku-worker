@@ -1,16 +1,15 @@
 FROM code4sa/aleph:latest
 
 ENV ELASTICSEARCH_INDEX aleph
-ENV ALEPH_SETTINGS /aleph/code4sa_settings.py
 ENV ZA_GAZETTE_ARCHIVE_URI http://s3-eu-west-1.amazonaws.com/code4sa-gazettes/archive/
+ENV C_FORCE_ROOT=true
 
-COPY settings.py /aleph/code4sa_settings.py
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -U -r /tmp/requirements.txt
+# HACK to work around bug in boto https://github.com/boto/boto/pull/3633
+RUN sed -i 's/eu-west-1.queue.amazonaws.com/sqs.eu-west-1.amazonaws.com/g' /usr/local/lib/python2.7/site-packages/boto/endpoints.json
 
 RUN mkdir /app
-COPY CHECKS /app/CHECKS
-
 WORKDIR /aleph
 
 CMD newrelic-admin run-program celery -A aleph.queue worker -c $CELERY_CONCURRENCY -l $LOGLEVEL --logfile=/var/log/celery.log
