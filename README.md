@@ -40,7 +40,9 @@ dokku config:set aleph \
     CELERYD_MAX_TASKS_PER_CHILD=1 \
     TIKA_URI='http://tika:9998/' \
     PDF_TEXT_MODULE='tika' \
-    LOGLEVEL=DEBUG
+    LOGLEVEL=DEBUG \
+    ZA_GAZETTE_ARCHIVE_URI=https://archive.opengazettes.org.za/ \
+    CELERY_RDBSIG=1
 ```
 
 ```
@@ -83,3 +85,7 @@ I found `CELERYD_MAX_TASKS_PER_CHILD=5` to work well, utilising up to about
 The NewRelic monitoring seems to have significant setup overhead so you
 want to have this as high as you can manage without making the machine
 unusable for hours.
+
+## Debugging / troubleshooting
+
+To figure out what a worker process is doing, use Celery's rdb. Send SIGUSR2 to the process and connect to a pdb session using telnet, as described at http://docs.celeryproject.org/en/v2.3.3/tutorials/debugging.html#enabling-the-breakpoint-signal. This will pause execution until you continue it in pdb or exit pdb.
