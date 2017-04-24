@@ -14,17 +14,17 @@ Note that logs are persistent across container restarts and are in `/var/log/ale
 
 ```
 dokku config:set aleph \
-    ALEPH_APP_TITLE="Aleph Code4SA" \
+    ALEPH_APP_TITLE="Open Gazettes Kenya" \
     ALEPH_APP_NAME=aleph \
     ALEPH_FAVICON=http://code4sa.org/favicon.ico \
-    ALEPH_APP_URL=http://search.opengazettes.org.za \
+    ALEPH_APP_URL=http://search.opengazettes.or.ke \
     ALEPH_LOGO=http://code4sa.org/images/logo.png \
     ALEPH_SECRET_KEY=... \
     ALEPH_URL_SCHEME=http \
     ALEPH_OAUTH_KEY=... \
     ALEPH_OAUTH_SECRET=... \
     ALEPH_ARCHIVE_TYPE=s3 \
-    ALEPH_ARCHIVE_BUCKET=code4sa-aleph \
+    ALEPH_ARCHIVE_BUCKET=cfa-opengazettes-ke \
     AWS_ACCESS_KEY_ID=... \
     AWS_SECRET_ACCESS_KEY=... \
     ALEPH_BROKER_URI=sqs://sqs.eu-west-1.amazonaws.com/.../
@@ -41,12 +41,12 @@ dokku config:set aleph \
     TIKA_URI='http://tika:9998/' \
     PDF_TEXT_MODULE='tika' \
     LOGLEVEL=DEBUG \
-    ZA_GAZETTE_ARCHIVE_URI=https://archive.opengazettes.org.za/ \
+    KE_GAZETTE_ARCHIVE_URI=https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/ \
     CELERY_RDBSIG=1
 ```
 
 ```
-docker run -d --name=tika logicalspark/docker-tikaserver
+docker run -d --name=tika maquchizi/aleph-docker-tikaserver
 ```
 
 ```
