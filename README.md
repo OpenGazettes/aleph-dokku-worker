@@ -46,7 +46,7 @@ dokku config:set aleph \
 ```
 
 ```
-docker run -d --name=tika maquchizi/aleph-docker-tikaserver
+docker run -d --name=tika codeforafrica/aleph-docker-tikaserver
 ```
 
 ```

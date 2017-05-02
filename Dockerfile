@@ -1,4 +1,4 @@
-FROM maquchizi/opengazettes-aleph:latest
+FROM codeforafrica/opengazettes-aleph:latest
 
 ENV ELASTICSEARCH_INDEX aleph
 ENV C_FORCE_ROOT=true
