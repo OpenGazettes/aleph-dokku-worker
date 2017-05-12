@@ -9,4 +9,5 @@ RUN pip install -U -r /tmp/requirements.txt
 
 WORKDIR /aleph
 
+EXPOSE 8001
 CMD celery -A aleph.queues -B -c $CELERY_CONCURRENCY -l $LOGLEVEL worker --pidfile /var/lib/celery.pid
