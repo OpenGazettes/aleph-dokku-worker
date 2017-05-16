@@ -1,3 +1,2 @@
 psycopg2==2.6.2
-pycurl==7.43.0
 git+git://github.com/OpenGazettes/aleph_ke_gazette_crawler.git
