@@ -10,4 +10,4 @@ RUN pip uninstall -y celery kombu && pip install --no-cache-dir celery==4.0.0
 
 WORKDIR /aleph
 
-CMD celery -A aleph.queues -B -c $CELERY_CONCURRENCY -l $LOGLEVEL -P solo worker --pidfile /var/lib/celery.pid
+CMD celery -A aleph.queues -B -c $CELERY_CONCURRENCY -l $LOGLEVEL worker --pidfile /var/lib/celery.pid
