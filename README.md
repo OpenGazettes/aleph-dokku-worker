@@ -13,36 +13,29 @@ Note that logs are persistent across container restarts and are in `/var/log/ale
 ## Deployment
 
 ```
-dokku config:set aleph \
+dokku config:set aleph-worker ALEPH_APP_NAME=opengazettes_ke \
     ALEPH_APP_TITLE="Open Gazettes Kenya" \
-    ALEPH_APP_NAME=aleph \
-    ALEPH_FAVICON=http://code4sa.org/favicon.ico \
-    ALEPH_APP_URL=http://search.opengazettes.or.ke \
-    ALEPH_LOGO=http://code4sa.org/images/logo.png \
-    ALEPH_SECRET_KEY=... \
-    ALEPH_URL_SCHEME=http \
+    ALEPH_ARCHIVE_BUCKET=cfa-opengazettes-ke \
+    ALEPH_ARCHIVE_TYPE=s3 \
+    ALEPH_BROKER_URI=amqp://... \
+    ALEPH_DATABASE_URI=postgres://... \
+    ALEPH_ELASTICSEARCH_URI=http://... \
     ALEPH_OAUTH_KEY=... \
     ALEPH_OAUTH_SECRET=... \
-    ALEPH_ARCHIVE_TYPE=s3 \
-    ALEPH_ARCHIVE_BUCKET=cfa-opengazettes-ke \
+    ALEPH_PDF_OCR_IMAGE_PAGES=false \
+    ALEPH_TIKA_URI=http://tika:9998/ \
+    ALEPH_URL_SCHEME=http \
     AWS_ACCESS_KEY_ID=... \
     AWS_SECRET_ACCESS_KEY=... \
-    ALEPH_BROKER_URI=sqs://sqs.eu-west-1.amazonaws.com/.../
-    ALEPH_DATABASE_URI=postgresql://aleph:aleph@postgres/aleph \
-    ALEPH_ELASTICSEARCH_URI=http://elasticsearch:9200/
-    NEW_RELIC_APP_NAME="Aleph Worker" \
-    NEW_RELIC_LICENSE_KEY=... \
-    C_FORCE_ROOT='true' \
-    POLYGLOT_DATA_PATH=/opt/aleph/data \
-    TESSDATA_PREFIX=/usr/share/tesseract-ocr \
-    ALEPH_PDF_OCR_IMAGE_PAGES=false \
     CELERY_CONCURRENCY=4 \
     CELERYD_MAX_TASKS_PER_CHILD=1 \
-    TIKA_URI='http://tika:9998/' \
-    PDF_TEXT_MODULE='tika' \
-    LOGLEVEL=DEBUG \
+    CELERY_RDBSIG=1 \
+    C_FORCE_ROOT=true \
     KE_GAZETTE_ARCHIVE_URI=https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/ \
-    CELERY_RDBSIG=1
+    LOGLEVEL=DEBUG \
+    PDF_TEXT_MODULE=tika \
+    POLYGLOT_DATA_PATH=/opt/aleph/data \
+    TESSDATA_PREFIX=/usr/share/tesseract-ocr
 ```
 
 ```
