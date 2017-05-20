@@ -39,7 +39,7 @@ dokku config:set aleph-worker ALEPH_APP_NAME=opengazettes_ke \
 ```
 
 ```
-docker run -d --name=tika codeforafrica/aleph-docker-tikaserver
+docker run -d --name=tika opengazettes/aleph-docker-tikaserver
 ```
 
 ```
